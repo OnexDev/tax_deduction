@@ -107,6 +107,12 @@ input[type="text"]{
   line-height: 24px;
   border-radius: 3px;
   outline:none;
+
+  background-image:none;
+  background-color:transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 input[type="text"]:hover{
   padding:8px 10px;
