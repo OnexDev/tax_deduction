@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тестовое задание</title>
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+
+  </head>
+    <body>
+      <!-- app -->
+      <div id="app" class="app">
+        <button class="button ghost" @click="modalToggle">Налоговый вычет</button>
+
+        <modal v-if="showModal" @close="modalToggle">
+          <!-- Можно добавить дефолтные значения для заголовка, параграфа -->
+          <template v-slot:header><h3>Налоговый вычет</h3></template>
+        </modal>
+      </div>
+  
+      <!-- Экспорт vue -->
+      <script src="https://unpkg.com/vue@next"></script>
+
+      <!-- Шаблон модального окна -->
+      <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+          <div class="modal-mask" @click="$emit('close')">
+            <div class="modal-wrapper" @click.stop> 
+              <div class="modal-container">
+                <img class="modal-close-button" @click="$emit('close')" src="./close.svg" alt="Крестик">
+                <div class="modal-header">
+                  <slot name="header">
+                    <!-- Налоговый вычет -->
+                  </slot>
+                  
+                </div>
+  
+                <div class="modal-body">
+                  <p>
+                    <slot name="body">
+                      Используйте налоговый вычет чтобы погасить ипотеку досрочно. Размер налогового вычета составляет не более 13% от своего официального годового дохода.
+                    </slot>
+                  </p>
+                </div>
+  
+                <div class="modal-footer">
+                  <h4>Ваша зарплата в месяц</h4>
+                  <input type="text" placeholder="Введите данные" @keypress="isNumber($event)" v-model="salaryValue">
+                  <!-- <button class="text-button">Рассчитать</button>
+                  Отключил кнопку рассчитать, так как vue позволяет делать этот функционал реактивным. -->
+                  <h4 v-if="annualPayments.length !== 0">Итого можете внести в качестве досрочных:</h4>
+                  <ul class="payments">
+                    <li v-for="(payment, i) in annualPayments">
+                      <label>
+                        <input type="checkbox" name="payments" checked="checked">
+                          <!-- ₽ -->
+                        <span class="payment">{{payment}} рублей&nbsp;<span class="grey"> в {{i+1}}й-год</span></span></li>
+                      </label>
+                  </ul>
+                  <div class="toggle">
+                    <h4>Что уменьшаем?</h4>
+                    <label>
+                      <input type="radio" value="Платёж" checked="checked" name="toggle">
+                      <span>Платёж</span>
+                    </label>
+                    <label>
+                      <input type="radio" value="Срок" name="toggle">
+                      <span>Срок</span>
+                    </label>
+                  </div>
+
+                  <button class="btn">Добавить</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition>
+      </script>
+
+      <script src="app.js"></script>
+
+</body>
+</html>

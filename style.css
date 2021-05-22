@@ -1,0 +1,352 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+
+/* Gradient Red */
+  background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: flex;
+}
+
+h3 {
+  font-size: 28px;
+  line-height: 40px;
+}
+p{
+  font-size: 14px;
+  line-height: 24px;
+}
+
+#app{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Btn */
+button{
+  background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  box-shadow: 0px 0px 24px rgba(234, 0, 41, 0.33);
+  border-radius: 6px;
+  border: none;
+  padding:16px 32px;
+  cursor: pointer;
+  color:#fff;
+  font-weight: 500;
+
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover{
+  background: #EA0029;
+}
+button.text-button{
+  background: none;
+  color:  #EA0029;
+  box-shadow: none;
+  padding: 0;
+  font-size: 14px;
+  line-height: 24px;
+
+}
+button.ghost{
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  padding: 16px 32px;
+  position: relative;
+  font-weight: 500;
+
+  background: transparent;
+  border: 1px solid #FFFFFF;
+  color:#fff;
+  box-sizing: border-box;
+  /* filter: drop-shadow(0px 0px 44px #CFDAE7); */
+  border-radius: 6px;
+  
+  overflow: hidden;
+  transition: color 0.3s ease;
+  margin: auto;
+}
+button.ghost::before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background: #fff;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+button.ghost:hover{
+  color: #000;
+}
+button.ghost:hover::before{
+  width: 100%;
+}
+  
+
+input[type="text"]{
+  padding:8px 10px;
+  border: 1px solid #DFE3E6;
+  transition: border .3s ease;
+  font-size: 14px;
+  line-height: 24px;
+  border-radius: 3px;
+  outline:none;
+}
+input[type="text"]:hover{
+  padding:8px 10px;
+  border: 1px solid #000;
+  transition: border .3s ease;
+}
+input[type="text"]::-webkit-input-placeholder { /* Chrome */
+  color: #BEC5CC;
+}
+input[type="text"]:-ms-input-placeholder { /* IE 10+ */
+  color: red;
+}
+input[type="text"]::-moz-placeholder { /* Firefox 19+ */
+  color: #BEC5CC;
+  opacity: 1;
+}
+input[type="text"]:-moz-placeholder { /* Firefox 4 - 18 */
+  color: #BEC5CC;
+  opacity: 1;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+
+  transition: opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.modal-wrapper {
+  display: flex;
+  cursor: default;
+}
+
+.modal-container {
+  /* width: 300px; */
+  /* width: fit-content; */
+  position: relative;
+  width: 512px;
+  margin: 0px auto;
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3{
+  margin: 0;
+  /* color: #42b983; */
+}
+
+.modal-close-button {
+  position: absolute;
+  padding:11px;
+  right: 16px;
+  top:16px;
+  cursor: pointer;
+}
+
+.modal-footer h4{
+  font-size: 14px;
+  line-height: 171%;
+  margin: 0;
+}
+.modal-footer input,.modal-footer .btn{
+  width: 100%;
+}
+.modal-footer input{ 
+  margin: 8px 0;
+}
+.modal-footer .btn {
+  margin-top: 16px;
+}
+ul.payments{
+  list-style:none;
+  padding:0;
+  margin: 0;
+}
+
+ul.payments li label{
+  display: flex;
+  flex-direction: column;
+  padding:16px 0;
+  position: relative;
+}
+
+ul.payments li::after{
+  content: '';
+  display: block;
+  background: #DFE3E6;
+  width: 100%;
+  height: 1px;
+}
+ul.payments li label input{
+  display: none;
+}
+ul.payments li label .grey{
+  opacity: .4;
+}
+ul.payments li label .payment{
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+ul.payments li label .payment::before{
+  content: "";
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  margin-right: 11px;
+  background: #FFFFFF;
+
+  /* Gray 800 */
+  border: 1px solid #DFE3E6;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+ul.payments li label input:checked + .payment::before{
+  border: 0;
+  background: url("./сheck.svg"), linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  background-position: center center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 70%, 100%;
+}
+
+.toggle{
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+}
+.toggle h4{
+  margin: 0;
+  margin-right: 32px;
+}
+.toggle input{
+  display: none;
+}
+.toggle span{
+  font-size: 14px;
+  line-height: 24px;
+  padding: 6px 12px;
+  background: #EEF0F2;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 16px;
+}
+.toggle input:checked + SPAN{
+  color:white;
+  background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  
+}
+@media screen and (max-width:1080px) {
+  .modal-container {
+    /* width: 300px; */
+    /* width: fit-content; */
+    width: 453px;
+ 
+  }
+}
+@media screen and (max-width:640px) {
+  .modal-mask{
+    
+  }
+  .modal-container {
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
+    border-radius: 0;
+
+    display: flex;
+    flex-direction: column;
+    
+
+  }
+  .toggle{
+    flex-wrap: wrap;
+  }
+  .toggle h4{
+    margin-bottom: 24px;
+    min-width: 100%;
+  }
+  .modal-footer{
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 4;
+    padding-bottom: 16px;
+  }
+  .modal-footer .btn{
+    /* margin-top:auto; */
+    display: block;
+    /* justify-self: end; */
+    justify-content: flex-end;
+    align-self: flex-end;
+    margin-top: auto;
+    
+  }
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
