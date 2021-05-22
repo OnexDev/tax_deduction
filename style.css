@@ -21,6 +21,7 @@ h3 {
   line-height: 40px;
 }
 p{
+  padding:0;
   font-size: 14px;
   line-height: 24px;
 }
@@ -301,6 +302,14 @@ ul.payments li label input:checked + .payment::before{
   .modal-mask{
     
   }
+  p{
+    font-size:12px;
+    line-height:16px;
+  }
+  .modal-body {
+    margin: 16px 0 24px 0;
+  }
+      
   .modal-container h3{
     font-size:18px;
     line-height: 24px;
