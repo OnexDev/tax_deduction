@@ -100,6 +100,10 @@ button.ghost:hover::before{
   
 
 input[type="text"]{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
   padding:8px 10px;
   border: 1px solid #DFE3E6;
   transition: border .3s ease;
