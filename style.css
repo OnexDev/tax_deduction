@@ -301,6 +301,10 @@ ul.payments li label input:checked + .payment::before{
   .modal-mask{
     
   }
+  .modal-container h3{
+    font-size:18px;
+    line-height: 24px;
+  }
   .modal-container {
     width: 100%;
     min-height: 100vh;
